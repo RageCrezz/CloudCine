@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="w-screen min-h-screen bg-[#212223] text-white">
+    <main class="w-full h-full min-h-screen m-0 p-0">
+      <p class="notice"><%= notice %></p>
+      <div class="flex-1 h-auto p-1 outline-dashed outline-[#405eed] bg-[#758cfa] text-white absolute top-4 left-4 right-4 rounded-lg">
+        <p class="alert text-sm"><%= alert %></p>
+      </div>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

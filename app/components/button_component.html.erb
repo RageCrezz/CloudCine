@@ -1,0 +1,5 @@
+<% if @form %>
+  <%= @form.submit @label, class: button_classes, **@options %>
+<% else %>
+  <%= link_to @label, @url, method: @method, class: button_classes, **@options %>
+<% end %>

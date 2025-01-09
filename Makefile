@@ -58,13 +58,13 @@ endif
 
 # Console commands
 bash:
-	docker exec -it cloudcine-web bash
+	docker exec -it cloudcine-app bash
 
 console:
 	rails console
 
 logs:
-	docker logs -f cloudcine-web
+	docker logs -f cloudcine-app
 
 # Clean code
 clean:

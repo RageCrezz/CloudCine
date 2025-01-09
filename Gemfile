@@ -17,6 +17,24 @@ gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+
+# ==============================
+# ==============================
+# ==============================
+
+# PRIVATE COMPONENTS
+gem 'view_component'
+
+gem 'devise'
+
+gem 'rack-attack'
+
+gem 'view_component'
+
+# ==============================
+# ==============================
+# ==============================
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -51,3 +69,7 @@ group :development do
   # gem "spring"
 end
 
+
+gem "tailwindcss-rails", "~> 3.1"
+
+gem "hotwire-livereload", "~> 2.0", :group => :development
