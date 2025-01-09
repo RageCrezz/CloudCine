@@ -1,0 +1,33 @@
+FROM ruby:3.3.0
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    build-essential \
+    nodejs \
+    npm \
+    yarn
+
+# Install Yarn
+RUN npm install -g yarn
+
+# Install RubyGems and NPM dependencies
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+RUN yarn
+
+# Copy the Rails application code into the container
+COPY .env.dev .env
+COPY .env.dev .env.dev
+
+# Copy the Rails application code into the container
+COPY . .
+
+# Expose port 4000 to the outside world
+EXPOSE 3000
+
+# Start the Rails dev server
+CMD ["bin/dev"]

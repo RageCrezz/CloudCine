@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# Ensure the necessary gems are installed
+if ! gem list foreman -i --silent; then
+  echo "Installing foreman..."
+  gem install foreman
+fi
+
+# Default to port 4000 if not specified
+export PORT="${PORT:-4000}"
+
+# Ensure the environment is set to production
+export RAILS_ENV=production
+
+# Precompile assets
+bundle exec rake assets:precompile
+
+# Start the application using Foreman
+exec foreman start -f Procfile.prod "$@"
