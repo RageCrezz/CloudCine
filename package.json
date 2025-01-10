@@ -1,0 +1,31 @@
+{
+  "name": "app",
+  "private": true,
+  "version": "0.1.0",
+  "babel": {
+    "presets": [
+      "./node_modules/@rails/webpacker/package/babel/preset.js"
+    ]
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo": "^8.0.12",
+    "bulma": "^1.0.3",
+    "css-loader": "^7.1.2",
+    "esbuild": "^0.24.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.83.1",
+    "sass-loader": "^16.0.4",
+    "webpack-dev-server": "^5.2.0"
+  }
+}

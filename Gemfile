@@ -1,12 +1,9 @@
 source "https://rubygems.org"
 
-ruby "3.3.0"
+ruby "3.4.1"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
-
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
@@ -17,19 +14,29 @@ gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-
 # ==============================
 # ==============================
 # ==============================
 
 # PRIVATE COMPONENTS
-gem 'view_component'
+gem "view_component"
 
-gem 'devise'
+gem "devise"
 
-gem 'rack-attack'
+gem "rack-attack"
 
-gem 'view_component'
+gem "bulma-rails", "~> 1.0.0"
+
+gem 'stimulus-rails'
+
+gem 'propshaft'
+
+group :development do
+  gem 'haml_lint', require: false
+  gem "rubocop", require: false
+  gem "rubocop-rails", require: false
+  gem "standard", "~> 1.40"
+end
 
 # ==============================
 # ==============================
@@ -45,7 +52,7 @@ gem 'view_component'
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -55,7 +62,7 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
+  gem "debug", platforms: %i[mri windows]
 end
 
 group :development do
@@ -69,7 +76,6 @@ group :development do
   # gem "spring"
 end
 
+# gem "dartsass-rails", "~> 0.5.1"
 
-gem "tailwindcss-rails", "~> 3.1"
-
-gem "hotwire-livereload", "~> 2.0", :group => :development
+gem "jsbundling-rails", "~> 1.3"

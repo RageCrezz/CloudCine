@@ -9,6 +9,7 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - db-data:/var/lib/postgresql/data
+
   cloudcine-web:
     build:
       context: .
@@ -19,6 +20,7 @@ services:
       - .env.dev
     volumes:
       - .:/app
+      - /app/app/assets/builds
     ports:
       - "3000:3000"
     depends_on:

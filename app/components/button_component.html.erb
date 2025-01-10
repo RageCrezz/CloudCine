@@ -1,5 +1,7 @@
 <% if @form %>
-  <%= @form.submit @label, class: button_classes, **@options %>
-<% else %>
-  <%= link_to @label, @url, method: @method, class: button_classes, **@options %>
-<% end %>
+  <button type="submit" class="<%= button_classes %>" <%= @options.map { |k, v| "#{k}=\"#{v}\"" }.join(" ") %>>
+    <%= @label %>
+  </button>
+  <% else %>
+    <%= link_to @label, @url, method: @method, class: button_classes, **@options %>
+  <% end %>

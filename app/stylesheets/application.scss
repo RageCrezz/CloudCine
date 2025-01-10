@@ -1,0 +1,50 @@
+$primary: #405eed;
+$link: #405eed;
+$danger: #e74c3c;
+$background: #ffffff;
+$text: #333333;
+
+/* Import Bulma */
+@import "bulma";
+
+// Components
+@import "components/button";
+
+// Layouts
+@import "layouts/setup";
+
+/* Define light and dark mode variables */
+:root {
+  --primary-color: #405eed;
+  --primary-hover-color: rgba(64, 94, 237, 0.8);
+  --secondary-color: #405eed;
+  --secondary-text-color: white;
+  --danger-color: #e74c3c;
+  --danger-hover-color: rgba(231, 76, 60, 0.75);
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --bg: #eeeeee;
+}
+
+[data-theme="dark"] {
+  --primary-color: #1d4ed8;
+  --primary-hover-color: rgba(29, 78, 216, 0.8);
+  --secondary-color: #1d4ed8;
+  --secondary-text-color: #ffffff;
+  --danger-color: #b91c1c;
+  --danger-hover-color: rgba(185, 28, 28, 0.75);
+  --background-color: #1a202c;
+  --text-color: #f1f5f9;
+  --bg: #222222;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    min-height: 100vh;
+  background-color: var(--bg);
+}

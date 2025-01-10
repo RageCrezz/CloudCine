@@ -1,4 +1,4 @@
-FROM ruby:3.3.0
+FROM ruby:3.4.1
 
 # Set the working directory in the container
 WORKDIR /app
@@ -9,24 +9,33 @@ RUN apt-get update && \
     build-essential \
     nodejs \
     npm \
-    yarn
+    yarn \
+    esbuild
 
 # Install Yarn
 RUN npm install -g yarn
 
-# Install RubyGems and NPM dependencies
+# Copy the package.json and yarn.lock first to take advantage of Docker caching
+COPY package.json yarn.lock ./
+
+# Install node dependencies (including @hotwired/stimulus)
+RUN yarn install
+
+# Install Ruby dependencies
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
-RUN yarn
 
-# Copy the Rails application code into the container
+# Copy the environment configuration files
 COPY .env.dev .env
 COPY .env.dev .env.dev
 
 # Copy the Rails application code into the container
 COPY . .
 
-# Expose port 4000 to the outside world
+# Run ESBuild to compile JavaScript and CSS assets
+RUN node build.js
+
+# Expose port 3000 to the outside world (adjusted to the Rails default port)
 EXPOSE 3000
 
 # Start the Rails dev server

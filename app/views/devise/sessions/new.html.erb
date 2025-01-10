@@ -1,31 +1,32 @@
-<div class="w-full h-full min-h-screen flex flex-col justify-center items-center">
-  <%= image_tag 'logo/logo.svg', alt: 'logo', class: 'w-[128px] h-auto mb-4' %>
-
-  <h2 class="text-xl font-bold mb-8">Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'flex flex-col gap-y-4' }) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="hero is-fullheight is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+  <%= image_tag 'logo/logo.svg', alt: 'logo', class: 'image is-128x128 mb-4' %>
+  <h2 class="title is-4 mb-5">Log in</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form' }) do |f| %>
+    <div class="field mb-2">
+      <label class="label"><%= f.label :email %></label>
+      <div class="control">
+        <%= f.email_field :email, class: 'input', autofocus: true, autocomplete: "email" %>
+      </div>
     </div>
+    <div class="field">
+      <label class="label"><%= f.label :password %></label>
+      <div class="control">
+        <%= f.password_field :password, class: 'input', autocomplete: "current-password" %>
+      </div>
+    </div>
+    <% if devise_mapping.rememberable? %>
+      <div class="field my-2">
+        <div class="control">
+          <label class="checkbox">
+            <%= f.check_box :remember_me %>
+            Remember me
+          </label>
+        </div>
+      </div>
+    <% end %>
+    <%= render(ButtonComponent.new(label: "Log in", style: "primary", form: f, class: "is-fullwidth")) %>
   <% end %>
-
-  <%= render(ButtonComponent.new(label: "Log in", style: "primary", form: f)) %>
-<% end %>
-
-<div class="mt-4 flex flex-col items-center gap-y-0">
-  <%= render "devise/shared/links" %>
-</div>
-
+  <div class="mt-2 is-flex is-flex-direction-column has-text-centered">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>

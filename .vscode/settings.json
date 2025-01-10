@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[ruby]": {
+    "editor.defaultFormatter": "shopify.ruby-lsp"
+  },
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+  },
+  "[html.erb]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "rubyLsp.rubyEnv": "/opt/homebrew/bin/ruby",
+  "makefile.configureOnOpen": true
+}
