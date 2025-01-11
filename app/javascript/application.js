@@ -1,6 +1,8 @@
 import { Application } from "@hotwired/stimulus";
-import SecurityQuestionsController from "./controllers/security_questions_controller";
-import "../stylesheets/application.scss";
+import SecurityQuestionController from "./controllers/security_question_controller";
+import DarkModeController from "./controllers/dark_mode_controller"; // Import your dark mode controller
 
 const application = Application.start();
-application.register("security-questions", SecurityQuestionsController);
+
+application.register("security-question", SecurityQuestionController);
+application.register("dark-mode", DarkModeController);

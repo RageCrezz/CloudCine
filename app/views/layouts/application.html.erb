@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html>
   <head>
-    <title>CloudCine</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= content_for(:title) || "CloudCine" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= yield :head %>
+    <!-- Favicon and Icons -->
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <!-- Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
   <body>
-    <main class="section p-0">
-      <% if notice.present? %>
-        <p class="notification is-primary">
-          <%= notice %>
-        </p>
-      <% end %>
-      <% if alert.present? %>
-        <div class="notification is-danger is-light">
-          <p class="is-size-7"><%= alert %></p>
-        </div>
-      <% end %>
+    <main>
+      <%= render "layouts/navbar" %>
       <%= yield %>
     </main>
+    <!-- JavaScript -->
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>
   </body>
 </html>

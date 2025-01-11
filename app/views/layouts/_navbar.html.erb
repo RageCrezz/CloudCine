@@ -1,0 +1,17 @@
+<nav class="navbar is-fixed-top px-4" data-controller="dark-mode">
+  <div class="navbar-brand brand-view">
+    <%= image_tag "logo/logo.svg" %>
+    <a class="navbar-item" href="/">
+      <strong>CloudCine</strong>
+    </a>
+  </div>
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <button data-action="click->dark-mode#toggle" class="button is-light is-outlined">
+        <span class="icon" data-dark-mode-target="icon">
+          <i class="fas fa-moon"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+</nav>

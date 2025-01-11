@@ -1,0 +1,40 @@
+<div class="setup-view">
+  <h1>Setup Admin User</h1>
+  <%= form_with url: setup_path, method: :post, local: true do |f| %>
+    <div>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div data-controller="security-question">
+      <div>
+        <%= f.label :security_question_1, "Security Question 1" %>
+        <%= f.select :security_question_1, 
+          @questions, 
+          {}, 
+          data: { security_question_target: "question1", action: "change->security-question#updateQuestion1" } %>
+      </div>
+      <div>
+        <%= f.label :security_answer_1, "Answer 1" %>
+        <%= f.text_field :security_answer_1 %>
+      </div>
+      <div>
+        <%= f.label :security_question_2, "Security Question 2" %>
+        <%= f.select :security_question_2, 
+          @questions,  
+          { selected: @questions.second }, 
+          data: { security_question_target: "question2", action: "change->security-question#updateQuestion2" } %>
+      </div>
+      <div>
+        <%= f.label :security_answer_2, "Answer 2" %>
+        <%= f.text_field :security_answer_2 %>
+      </div>
+    </div>
+    <div>
+      <%= f.submit "Create Admin" %>
+    </div>
+  <% end %>
+</div>

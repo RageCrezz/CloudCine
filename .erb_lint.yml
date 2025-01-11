@@ -1,0 +1,5 @@
+linters:
+  ErbSafety:
+    enabled: true
+  SpaceAroundErbTag:
+    enabled: true

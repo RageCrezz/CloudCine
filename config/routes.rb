@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  # Devise routes for handling custom mappings
   devise_scope :user do
-    root to: "devise/sessions#new"
+    root to: "devise/sessions#new" # Use Devise's sessions controller for the root path
   end
 
-  get "/setup", to: "setup#new", as: :setup
+  # Setup routes
+  get "/setup", to: "setup#index"
   post "/setup", to: "setup#create"
-
-  get "home/index"
-  get "up" => "rails/health#show", :as => :rails_health_check
 end

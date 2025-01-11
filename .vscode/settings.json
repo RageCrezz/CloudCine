@@ -2,14 +2,26 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[ruby]": {
-    "editor.defaultFormatter": "shopify.ruby-lsp"
+    "editor.defaultFormatter": "Shopify.ruby-lsp"
   },
-  "[erb]": {
-    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[html.erb]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "rubyLsp.rubyEnv": "/opt/homebrew/bin/ruby",
+  "[erb]": {
+    "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+  },
+  "files.associations": {
+    "*.html.erb": "erb",
+    "*.sass.scss": "scss"
+  },
   "makefile.configureOnOpen": true
 }
