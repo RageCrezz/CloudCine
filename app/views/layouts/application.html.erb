@@ -17,9 +17,27 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
   <body>
-    <main>
+    <main data-controller="sidebar">
       <%= render "layouts/navbar" %>
-      <%= yield %>
+      <div class="nested-yield">
+        <aside data-sidebar-target="sidebar" class="sidebar off">
+          <nav class="menu">
+            <h3 class="menu-heading">Media</h3>
+            <ul>
+              <li><a href="#"><i class="fa-solid fa-film"></i><span class="menu-label">Movies</span></a></li>
+              <li><a href="#"><i class="fa-solid fa-tv"></i><span class="menu-label">TV Shows</span></a></li>
+              <li><a href="#"><i class="fa-solid fa-music"></i><span class="menu-label">Music</span></a></li>
+              <li><a href="#"><i class="fa-solid fa-square-plus"></i><span class="menu-label">Playlists</span></a></li>
+            </ul>
+            <h3 class="menu-heading">User</h3>
+            <ul>
+              <li><a href="#"><i class="fa-solid fa-cog"></i><span class="menu-label">Settings</span></a></li>
+              <li><a rel="nofollow" data-method="delete" href="<%= destroy_user_session_path %>"><i class="fa-solid fa-right-from-bracket"></i><span class="menu-label">Sign Out</span></a></li>
+            </ul>
+          </nav>
+        </aside>
+        <%= yield %>
+      </div>
     </main>
     <!-- JavaScript -->
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module", defer: true %>

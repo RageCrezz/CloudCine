@@ -10,10 +10,15 @@ class SetupController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      redirect_to root_path, notice: "Admin user created successfully."
+      redirect_to setup_success_path, notice: "Admin user created successfully."
     else
+      flash.now[:alert] = user.errors.full_messages.join(", ")
       render :index
     end
+  end
+
+  def success
+    redirect_to root_path if User.count.zero?
   end
 
   private

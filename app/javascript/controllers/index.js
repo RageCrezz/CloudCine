@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import SecurityQuestionController from "./security_question_controller"
 application.register("security-question", SecurityQuestionController)
+
+import SidebarController from "./sidebar_controller"
+application.register("sidebar", SidebarController)

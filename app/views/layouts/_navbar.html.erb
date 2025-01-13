@@ -1,5 +1,10 @@
 <nav class="navbar is-fixed-top px-4" data-controller="dark-mode">
   <div class="navbar-brand brand-view">
+    <div class="sidebar-toggle">
+      <button data-action="click->sidebar#toggle" class="button is-light is-outlined">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
     <%= image_tag "logo/logo.svg" %>
     <a class="navbar-item" href="/">
       <strong>CloudCine</strong>
